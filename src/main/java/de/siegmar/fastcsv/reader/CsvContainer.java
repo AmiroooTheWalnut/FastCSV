@@ -16,6 +16,8 @@
 
 package de.siegmar.fastcsv.reader;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,14 +26,22 @@ import java.util.List;
  *
  * @author Oliver Siegmar
  */
-public final class CsvContainer {
+public final class CsvContainer implements Serializable{
+    
+    static final long serialVersionUID = 1L;
 
-    public final List<String> header;
-    public final List<CsvRow> rows;
+    public final ArrayList<String> header;
+    public final ArrayList<CsvRow> rows;
 
     CsvContainer(final List<String> header, final List<CsvRow> rows) {
-        this.header = header;
-        this.rows = rows;
+        this.header = new ArrayList<>(header.size());
+        this.header.addAll(header);
+        
+        this.rows = new ArrayList<>(rows.size());
+        this.rows.addAll(rows);
+        
+//        this.header = header;
+//        this.rows = rows;
     }
 
     /**

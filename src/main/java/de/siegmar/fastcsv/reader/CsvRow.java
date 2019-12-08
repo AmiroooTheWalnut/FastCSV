@@ -16,7 +16,10 @@
 
 package de.siegmar.fastcsv.reader;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -27,22 +30,30 @@ import java.util.Map;
  *
  * @author Oliver Siegmar
  */
-public final class CsvRow {
+public final class CsvRow implements Serializable{
 
+    static final long serialVersionUID = 1L;
+    
     /**
      * The original line number (empty lines may be skipped).
      */
     private final long originalLineNumber;
 
-    private final Map<String, Integer> headerMap;
-    public final List<String> fields;
+    private final HashMap<String, Integer> headerMap;
+    public final ArrayList<String> fields;
 
     CsvRow(final long originalLineNumber, final Map<String, Integer> headerMap,
            final List<String> fields) {
 
         this.originalLineNumber = originalLineNumber;
-        this.headerMap = headerMap;
-        this.fields = fields;
+        
+        this.fields = new ArrayList<>(fields.size());
+        this.fields.addAll(fields);
+        
+        this.headerMap = new HashMap<>(headerMap);
+        
+//        this.headerMap = headerMap;
+//        this.fields = fields;
     }
 
     /**
