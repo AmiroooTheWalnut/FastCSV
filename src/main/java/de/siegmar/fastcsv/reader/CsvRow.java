@@ -35,7 +35,7 @@ public final class CsvRow {
     private final long originalLineNumber;
 
     private final Map<String, Integer> headerMap;
-    private final List<String> fields;
+    public final List<String> fields;
 
     CsvRow(final long originalLineNumber, final Map<String, Integer> headerMap,
            final List<String> fields) {

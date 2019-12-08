@@ -26,8 +26,8 @@ import java.util.List;
  */
 public final class CsvContainer {
 
-    private final List<String> header;
-    private final List<CsvRow> rows;
+    public final List<String> header;
+    public final List<CsvRow> rows;
 
     CsvContainer(final List<String> header, final List<CsvRow> rows) {
         this.header = header;

@@ -38,7 +38,7 @@ public final class CsvParser implements Closeable {
     private final boolean errorOnDifferentFieldCount;
 
     private Map<String, Integer> headerMap;
-    private List<String> headerList;
+    public List<String> headerList;
     private long lineNo;
     private int firstLineFieldCount = -1;
 
