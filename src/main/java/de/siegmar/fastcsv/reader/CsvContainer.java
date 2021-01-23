@@ -33,7 +33,7 @@ public final class CsvContainer implements Serializable{
     public final ArrayList<String> header;
     public final ArrayList<CsvRow> rows;
 
-    CsvContainer(final List<String> header, final List<CsvRow> rows) {
+    public CsvContainer(final List<String> header, final List<CsvRow> rows) {
         this.header = new ArrayList<>(header.size());
         this.header.addAll(header);
         
